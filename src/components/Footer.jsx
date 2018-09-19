@@ -43,7 +43,7 @@ const Footer = ({ isCase }) => {
   const year = new Date().getFullYear();
   return (
     <Wrapper>
-      <Inner justifyContent="space-between" p={4}>
+      <Inner px={4} py={6} justifyContent="center" alignItems="center" flexDirection="column">
         {isCase ? (
           <React.Fragment>
             <StyledLink to="/">Return to home</StyledLink>
@@ -52,12 +52,13 @@ const Footer = ({ isCase }) => {
         ) : (
           <React.Fragment>
             <div>
-              Copyright &copy; {year} by{' '}
-              <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>. Pictures
-              by <a href="https://unsplash.com/">Unsplash</a>. Illustrations by{' '}
-              <a href="https://undraw.co/illustrations">Undraw</a>.
+              Copyright &copy; {year} by{' '} Joe Spencer based on <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella</a>{'  '}
+              </div>
+              <div>
+              <a href="https://github.com/JoeSpencer">Github</a> &mdash; <a href="https://twitter.com/spencerjoe">Twitter</a> &mdash; 
+              {' '}<a href="https://www.linkedin.com/in/joespencer2/">LinkedIn</a>
             </div>
-            <div>Snapchat &mdash; Musicaly &mdash; Twitter</div>
+            
           </React.Fragment>
         )}
       </Inner>

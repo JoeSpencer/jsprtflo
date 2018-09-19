@@ -32,7 +32,8 @@
     "react-helmet": "^5.2.0",
     "react-motion": "^0.5.2",
     "react-reveal-text": "^0.1.1",
-    "scrollmonitor-react": "^2.4.1"
+    "scrollmonitor-react": "^2.4.1",
+    "typeit": "^5.10.6"
   },
   "keywords": [
     "gatsby",
