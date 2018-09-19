@@ -4,10 +4,25 @@ import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
 import Footer from '../components/Footer';
 import GridItem from '../components/GridItem';
-import BeTheHero from '../images/be_the_hero.svg';
-import DataReport from '../images/data_report.svg';
-import MayTheForce from '../images/may_the_force.svg';
+import BeTheHero from '../images/undraw_wall_post_83ul.svg';
+import MayTheForce from '../images/undraw_design_process_iqqg.svg';
+import Surfboard from '../images/Surfboard.svg';
 import TextComponent from '../components/TextComponent';
+import TypeIt from 'typeit';
+
+class Type extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+  
+  componentDidMount () {
+    new TypeIt(this.el, this.props);
+  }
+  
+  render(){
+      return <span ref={(el) => { this.el = el; }}>{this.props.children}</span>;
+  }
+}
 
 const Header = styled.header`
   width: 100%;
@@ -30,7 +45,7 @@ const Logo = styled.h2`
 `;
 
 const Hero = styled(Flex)`
-  height: 100%;
+  height: 90%;
   text-align: center;
   h1 {
     letter-spacing: -0.1rem;
@@ -81,7 +96,7 @@ const ServiceImage = styled.div`
   width: calc(99.9% * 4 / 7 - 5rem);
   text-align: center;
   img {
-    width: 90%;
+    width: 70%;
     margin-bottom: 2rem;
   }
   @media (max-width: ${props => props.theme.breakpoint.l}) {
@@ -99,10 +114,42 @@ const ServiceImage = styled.div`
   }
 `;
 
+const IconImage = styled.div`
+  flex-basis: calc(99.9% * 4 / 7 - 5rem);
+  max-width: calc(99.9% * 4 / 7 - 5rem);
+  width: calc(99.9% * 4 / 7 - 5rem);
+  text-align: center;
+  img {
+    width: 5%;
+    margin-top: 4rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+    img {
+      width: 5%;
+      margin-top: 14rem;
+    }
+  }
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    img {
+      width: 15%;
+      margin-top: 9rem;
+    }
+  }
+`;
+
 const ServiceText = styled.div`
   flex-basis: calc(99.9% * 3 / 7 - 5rem);
   max-width: calc(99.9% * 3 / 7 - 5rem);
   width: calc(99.9% * 3 / 7 - 5rem);
+  h4 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 3rem;
+  }
   @media (max-width: ${props => props.theme.breakpoint.l}) {
     flex-basis: 100%;
     max-width: 100%;
@@ -147,6 +194,9 @@ const IndexPage = ({
       <Logo>Joe Spencer</Logo>
       
       <Hero justifyContent="center" alignItems="center" flexDirection="column">
+      <IconImage>
+      <img src={Surfboard} alt="Surfboard" />
+      </IconImage>
         <TextComponent />
         <h3>Based in MPLS</h3>
         
@@ -166,44 +216,51 @@ const IndexPage = ({
     </Wrapper>
     <PrimaryBG>
       <Wrapper flexDirection="column" p={4} mx="auto">
-        <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
+        <Flex w={1} py={5} justifyContent="space-around" flexWrap="wrap">
           <ServiceImage>
             <img src={BeTheHero} alt="Be The Hero" />
           </ServiceImage>
           <ServiceText>
             <h2>About Me</h2>
+            <h3>I’m an experienced UX designer and frontend developer.</h3>
             <p>
-            I’m an experienced frontend developer with a background in design. I have 10+ years of experience in agency and internal marketing roles. A motivated learner, I love to immerse myself in everything new in tech. I am a self-starter that can manage a project, but I also enjoy collaboration and working in a team atmosphere</p>
+            I have 12+ years of experience in agency and internal marketing roles. A motivated learner, I love to immerse myself in everything new in digital. I am a self-starter that can manage a project, but I also enjoy collaboration and working in a team atmosphere</p>
             
             <p>Currently I am working as a consultant for The Creative Group. Click the link below to find out about my availability.
             </p>
             
           </ServiceText>
         </Flex>
-        <Flex w={1} py={5} justifyContent="space-between" flexDirection="row-reverse" flexWrap="wrap">
-          <ServiceImage>
-            <img src={DataReport} alt="Data Report" />
-          </ServiceImage>
+        <Flex w={1} py={5} justifyContent="space-around" flexDirection="row-reverse" flexWrap="wrap">
+        
           <ServiceText>
+          
             <h2>Skillset</h2>
-            
-            <ul>
-              <li>HTML / CSS / JavaScript</li>
-              <li>PhP</li>
-              <li>React JS</li>
-              <li>Vue</li>              
-              <li>Angular</li>
-              <li>Bootstrap</li>
-              <li>SASS / SCSS</li>
-              <li>Foundation</li>
-              <li>WordPress</li>
-            </ul>
+            <h4>
+            <Type 
+              strings="UX Design, HTML / CSS / JavaScript, React JS, Vue, Angular, Bootstrap, SASS / SCSS"
+              loop={false}
+              autoStart={false}
+              lifeLike={true}
+              speed={100}
+            />
+          </h4>
+          </ServiceText>
+          <ServiceText>
+          <h2>Systems and Tools</h2>
+          <h4>
+          <Type 
+              strings="Adobe Experience Manager, Adobe Marketing Cloud, Adobe Creative Cloud, HubSpot / HuBL, SiteCore SXA, VS Code, Atom, Sketch"
+              loop={false}
+              autoStart={false}
+              lifeLike={true}
+              speed={80}
+            />
+            </h4>
           </ServiceText>
         </Flex>
-        <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
-          <ServiceImage>
-            <img src={MayTheForce} alt="May the Force" />
-          </ServiceImage>
+        <Flex w={1} py={5} justifyContent="space-around" flexWrap="wrap">
+          
           <ServiceText>
             <h2>May the force be with you</h2>
             <p>
@@ -216,12 +273,16 @@ const IndexPage = ({
               <li>Great Offer</li>
             </ul>
           </ServiceText>
+          <ServiceImage>
+            <img src={MayTheForce} alt="May the Force" />
+          </ServiceImage>
         </Flex>
       </Wrapper>
     </PrimaryBG>
     <Contact px={4} py={6} justifyContent="center" alignItems="center" flexDirection="column">
       <h1>Say hi!</h1>
-      <h3>contact@domain.com</h3>
+      <h3><a href="mailto:joe@joespencer.info">joe@joespencer.info</a></h3>
+      
     </Contact>
     <Footer />
   </React.Fragment>

@@ -52,7 +52,7 @@ const Overlay = styled(Flex)`
     transition: opacity 300ms ease-out;
     &:first-child {
       transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
-      transform: translateY(2rem);
+      transform: translateY(-2rem);
     }
     &:last-child {
       font-size: 3.5rem;
@@ -99,7 +99,7 @@ const GridItem = ({ uid, sizes, alt, title, subtitle }) => (
     <StyledLink to={uid}>
       <Overlay justifyContent="center" alignItems="center" flexDirection="column">
         <span>view</span>
-        <span>case study</span>
+        <span>project</span>
       </Overlay>
       <Image sizes={sizes} alt={alt} />
     </StyledLink>
